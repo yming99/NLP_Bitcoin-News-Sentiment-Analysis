@@ -55,4 +55,5 @@ Confusion Matrix:
 <img width="629" height="505" alt="image" src="https://github.com/user-attachments/assets/3ff3aaa5-a7cf-4f6e-bdb8-c1c56e9f7fd3" />
 <br>
 
+Machine learning models trained on top ngram features outperformed those using finance pre-trained word embeddings for classification.
 
