@@ -47,7 +47,7 @@ Best model: NB<br>
 Training accuracy: 74%<br>
 Testing accuracy: 71%<br>
 
-Additional text cleaning (preserving important finance domain words) increase accuracy from 60%.<br>
+Additional text cleaning (preserving important finance domain words) increase accuracy by 10%.<br>
 Feature selection overcame massive overfitting issue on ML models.<br>
 
 Confusion Matrix:
