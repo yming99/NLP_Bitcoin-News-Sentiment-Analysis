@@ -35,7 +35,7 @@ Top 20 words for negative sentiment after text cleaning.<br> Preserve stop words
 
 <br>🔝 **Features Selection by Chi-square Score**:
 
-ML models overfitted with vectorized text data (BoW, ngram, TF-IDF).<br> Picked top features using Chi2 test to reduce feature's dimension.
+📍 ML models overfitted with vectorized text data (BoW, ngram, TF-IDF).<br> 📍 Picked top features using Chi2 test to reduce feature's dimension.
 
 <img width="829" height="470" alt="image" src="https://github.com/user-attachments/assets/3bb3cc8c-8ea0-403c-a406-30d600c8abd4" /><br>
 
@@ -47,13 +47,29 @@ Best model: NB<br>
 Training accuracy: 74%<br>
 Testing accuracy: 71%<br>
 
-Additional text cleaning (preserving important finance domain words) increase accuracy by 10%.<br>
-Feature selection overcame massive overfitting issue on ML models.<br>
+📍 Additional text cleaning (preserving important finance domain words) increase accuracy by 10%.<br>
+📍 Feature selection overcame massive overfitting issue on ML models.<br>
 
 Confusion Matrix:
-
-<img width="629" height="505" alt="image" src="https://github.com/user-attachments/assets/3ff3aaa5-a7cf-4f6e-bdb8-c1c56e9f7fd3" />
+<br><img width="629" height="505" alt="image" src="https://github.com/user-attachments/assets/3ff3aaa5-a7cf-4f6e-bdb8-c1c56e9f7fd3" />
 <br>
 
-Machine learning models trained on top ngram features outperformed those using finance pre-trained word embeddings for classification.
+<br> NB model trained using **word embeddings** by spaCy:
+<br> Training accuracy: 44%
+<br> Testing accuracy: **45%**
+<br><br> 📍 spaCy-generated word embeddings resulted in lower sentiment classification performance, likely because the model was not pre-trained on finance-specific domain data.
 
+<br> NB model using **word embeddings model** pretrained with finance data from HF 🤗:
+<br> Training accuracy: 67%
+<br> Testing accuracy: **66%**
+<br><br> Confusion Matrix:
+<br><img width="629" height="505" alt="image" src="https://github.com/user-attachments/assets/e19240b6-2532-4b5c-bb59-85a299821e67" />
+
+📍 This model was used as the baseline for evaluating the performance of other models.
+
+# 📌 Conclusion
+1. Removed irrelevant terms such as “Bitcoin,” as their frequent occurrence—being central to the dataset topic—adds little semantic value and may introduce noise into the model.
+2. Preserving stop words that are significant in the financial domain is crucial, as they often play a key role in accurately identifying sentiment.
+3. All text feature extraction techniques initially resulted in low performance and signs of overfitting; applying feature selection significantly improved model generalization and accuracy.
+4. Machine learning models trained on ngram features outperformed those using pre-trained word embeddings for classification.
+5. The dataset was labeled using a transformer-based sentiment analysis model, which may have introduced some degree of labeling inaccuracy due to model limitations or domain mismatch..
